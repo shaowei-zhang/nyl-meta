@@ -1,0 +1,41 @@
+server:
+  port: 8100
+
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+
+influxdb:
+  url: http://124.70.203.226:8237
+  token: EdVM0UnGgMcY9ohwjMbgHBz1ucw7L2kVjnz7qzRkY0aVEPL5ZzS_lmoYDCu0pZ9ATElX5Sm2SbnCvyzpLqkB6Q==
+  org: smart
+  bucket: HA
+
+# 元数据配置
+metadata:
+  enabled: false
+  # 若启用元数据，可配置数据库连接信息
+  # database:
+  #   url: jdbc:mysql://localhost:3306/metadata
+  #   username: root
+  #   password: password
+mqtt:
+  client:
+    enabled: true               # 是否开启客户端，默认：true
+    #    ip: 124.70.203.226         # 连接的服务端 ip ，默认：127.0.0.1
+    ip: 127.0.0.1         # 连接的服务端 ip ，默认：127.0.0.1
+    port: 1884             # 端口：默认：1883   运行环境：8173
+    name: Mica-Mqtt-Client      # 名称，默认：Mica-Mqtt-Client
+    clientId: afc13212212113f03aa221dd22112356629318877           # 客户端Id（非常重要，一般为设备 sn，不可重复）
+    user-name: baker             # 认证的用户名
+    password: NextGen            # 认证的密码
+    timeout: 60                  # 超时时间，单位：秒，默认：5秒
+    reconnect: true             # 是否重连，默认：true
+    re-interval: 5000           # 重连时间，默认 5000 毫秒
+    version: mqtt_3_1_1         # mqtt 协议版本，可选 MQTT_3_1、mqtt_3_1_1、mqtt_5，默认：mqtt_3_1_1
+    read-buffer-size: 8KB       # 接收数据的 buffer size，默认：8k
+    max-bytes-in-message: 10MB  # 消息解析最大 bytes 长度，默认：10M
+    buffer-allocator: heap      # 堆内存和堆外内存，默认：堆内存
+    keep-alive-secs: 300         # keep-alive 时间，单位：秒
+    clean-session: true         # mqtt clean session，默认：true
